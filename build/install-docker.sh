@@ -20,4 +20,7 @@ echo \
 apt-get update
 
 # Install all tools
-apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-model-plugin
+
+cd /tmp
+git clone https://github.com/docker/compose-for-agents.git
