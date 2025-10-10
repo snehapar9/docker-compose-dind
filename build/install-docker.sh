@@ -1,7 +1,7 @@
 #!/bin/bash -x
 
 apt-get update
-apt-get install -y ca-certificates curl iproute2
+apt-get install -y ca-certificates curl iproute2 git
 
 # Installing tzdata requires interaction later.. let's set it up correctly in first place
 export TZ=Etc/UTC
