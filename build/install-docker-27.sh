@@ -3,7 +3,7 @@
 set -e
 
 apt-get update
-apt-get install -y ca-certificates curl iproute2 gnupg lsb-release
+apt-get install -y ca-certificates curl iproute2 gnupg lsb-release git
 
 # Configure timezone non-interactively
 export TZ=Etc/UTC
@@ -32,3 +32,7 @@ apt-get install -y \
   containerd.io \
   docker-buildx-plugin=0.17.* \
   docker-compose-plugin=2.27.*
+
+# Clone the compose-for-agents repository
+cd /tmp
+git clone https://github.com/docker/compose-for-agents.git
