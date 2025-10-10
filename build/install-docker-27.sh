@@ -31,7 +31,8 @@ apt-get install -y \
   docker-ce-cli=5:27.* \
   containerd.io \
   docker-buildx-plugin=0.17.* \
-  docker-compose-plugin=2.27.*
+  docker-compose-plugin \
+  docker-model-plugin
 
 # Clone the compose-for-agents repository
 cd /tmp
