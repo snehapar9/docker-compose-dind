@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dind-pod-aks-remount
+spec:
+  hostUsers: false
+  containers:
+    - name: docker
+      image: snehapark4appssacr.azurecr.io/dind:v9
+      securityContext:
+        capabilities:
+          add: ["SYS_ADMIN", "NET_ADMIN"]
+      volumeMounts:
+        - mountPath: /var/lib/docker
+          name: docker-volume
+      resources:
+        requests: { cpu: 500m, memory: 1Gi }
+        limits: { cpu: 4000m, memory: 8Gi, ephemeral-storage: 40Gi }
+  volumes:
+    - name: docker-volume
+      emptyDir: {}
