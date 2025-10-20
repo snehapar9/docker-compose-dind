@@ -6,7 +6,10 @@ spec:
   hostUsers: false
   containers:
     - name: docker
-      image: snehapark4appssacr.azurecr.io/dind:v9
+      image: snehapark4appssacr.azurecr.io/dind:v10
+      args: 
+        - "https://github.com/docker/compose-for-agents.git"
+        - "compose-for-agents/langchaingo"
       securityContext:
         capabilities:
           add: ["SYS_ADMIN", "NET_ADMIN"]
