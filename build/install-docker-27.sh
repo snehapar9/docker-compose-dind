@@ -33,7 +33,3 @@ apt-get install -y \
   docker-buildx-plugin=0.17.* \
   docker-compose-plugin \
   docker-model-plugin
-
-# Clone the compose-for-agents repository
-cd /tmp
-git clone https://github.com/docker/compose-for-agents.git
