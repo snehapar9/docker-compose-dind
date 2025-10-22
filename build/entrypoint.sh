@@ -9,8 +9,13 @@ echo "Remounting /proc/sys as read-write..."
 mount -o remount,rw /proc/sys
 
 # Enable and start the Docker daemon
-echo "Enabling and starting dockerd..."
-/usr/bin/dockerd --ipv6=true --ip6tables=true --fixed-cidr-v6=fd00:dead:beef::/48 --rootless > /var/log/dockerd.log 2>&1 &
+echo "Enabling and starting dockerd with seccomp profile..."
+if [ -f "/etc/seccomp/docker-compose-seccomp.json" ]; then
+    /usr/bin/dockerd --seccomp-profile=/etc/seccomp/docker-compose-seccomp.json --ipv6=true --ip6tables=true --fixed-cidr-v6=fd00:dead:beef::/48 --rootless > /var/log/dockerd.log 2>&1 &
+else
+    echo "Seccomp profile not found, starting without seccomp profile..."
+    /usr/bin/dockerd --ipv6=true --ip6tables=true --fixed-cidr-v6=fd00:dead:beef::/48 --rootless > /var/log/dockerd.log 2>&1 &
+fi
 
 # Wait for Docker daemon to be ready
 echo "Waiting for Docker daemon to be ready..."

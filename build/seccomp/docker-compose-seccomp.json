@@ -1,0 +1,34 @@
+{
+  "defaultAction": "SCMP_ACT_ALLOW",
+  "syscalls": [
+    {
+      "names": [
+        "reboot",
+        "kexec_load",
+        "kexec_file_load",
+        "swapon",
+        "swapoff",
+        "acct",
+        "settimeofday",
+        "clock_settime",
+        "sethostname",
+        "setdomainname",
+        "ioperm",
+        "iopl",
+        "create_module",
+        "init_module",
+        "delete_module",
+        "finit_module",
+        "lookup_dcookie",
+        "perf_event_open",
+        "fanotify_init",
+        "vm86",
+        "vm86old",
+        "modify_ldt",
+        "_sysctl"
+      ],
+      "action": "SCMP_ACT_ERRNO",
+      "errnoRet": 1
+    }
+  ]
+}
